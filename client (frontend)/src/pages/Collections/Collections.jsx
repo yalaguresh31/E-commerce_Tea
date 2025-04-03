@@ -12,10 +12,15 @@ import p7 from '../../assets/p7.png'
 import p8 from '../../assets/p8.png'
 import p9 from '../../assets/p9.png'
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 function Collections() {
   const [isChecked, setIsChecked] = useState(false);
+  const navigate = useNavigate();
 
+  const handleProductClick = (imageSrc) => {
+    navigate(`/product/${encodeURIComponent(imageSrc)}`);
+  };
   const items ={
     COLLECTIONS: ['Black teas', 'Green teas', 'White teas', 'Chai', 'Matcha', 'Herbal teas','Oolong', 'Rooibos', 'Teaware'],
     ORIGIN: ['India', 'Japan', 'Iran', 'South Africa'],
@@ -55,17 +60,17 @@ function Collections() {
         {/* tea items */}
         <div className='p-5'>
           <div className='grid grid-cols-3 gap-3'>
-            <Product imageSrc={p1}/>
-            <Product imageSrc={p2}/>
-            <Product imageSrc={p3}/>
+            <Product imageSrc={p1} onClick={() => handleProductClick(p1)}/>
+            <Product imageSrc={p2} onClick={() => handleProductClick(p2)}/>
+            <Product imageSrc={p3} onClick={() => handleProductClick(p3)}/>
 
-            <Product imageSrc={p4}/>
-            <Product imageSrc={p5}/>
-            <Product imageSrc={p6}/>
+            <Product imageSrc={p4} onClick={() => handleProductClick(p4)}/>
+            <Product imageSrc={p5} onClick={() => handleProductClick(p5)}/>
+            <Product imageSrc={p6} onClick={() => handleProductClick(p6)}/>
 
-            <Product imageSrc={p7}/>
-            <Product imageSrc={p8}/>
-            <Product imageSrc={p9}/>
+            <Product imageSrc={p7} onClick={() => handleProductClick(p7)}/>
+            <Product imageSrc={p8} onClick={() => handleProductClick(p8)}/>
+            <Product imageSrc={p9} onClick={() => handleProductClick(p9)}/>
           </div>
         </div>
       </div>
