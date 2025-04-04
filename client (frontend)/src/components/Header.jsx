@@ -18,7 +18,7 @@ function Header() {
           <Link to="/"><img src={logo}  alt="logo" className='md:w-[20vw] w-[35vw]' /></Link>
         </div>
 
-        <div className={`md:static absolute bg-white md:min-h-fit min-h-[40vh] left-0 ${menuOpen ? 'top-[6%]' : 'top-[-100%]'} z-1 md:w-auto w-full p-10 text-center`}>
+        <div className={`md:static absolute bg-white md:min-h-fit min-h-[40vh] left-0 ${menuOpen ? 'top-[6%]' : 'top-[-100%]'} z-1 md:z-0 md:w-auto w-full p-10 text-center `}>
           <ul className='flex md:flex-row flex-col md:items-center md:gap-6 gap-8'>
             <li>
               <Link to="/" className="relative  group pb-2 hover:text-[#828181]" onClick={() => setMenuOpen(false)}>

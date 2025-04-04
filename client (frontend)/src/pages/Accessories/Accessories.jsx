@@ -13,7 +13,6 @@ import bag6 from '../../assets/bag6.png'
 import add from '../../assets/add.png'
 import substract from '../../assets/substract.png'
 import { useParams } from 'react-router-dom';
-
 import cup2 from '../../assets/cup2.png';
 import water from '../../assets/water.png';
 import time from '../../assets/time.png';
@@ -22,11 +21,13 @@ import Product from '../../components/Product.jsx'
 import p7 from '../../assets/p7.png';
 import p8 from '../../assets/p8.png';
 import p9 from '../../assets/p9.png';
+import MyBag from '../MyBag/MyBag.jsx'
 
 function SingleProduct() {
   const { imageSrc } = useParams();
   const decodedImageSrc = imageSrc ? decodeURIComponent(imageSrc) : null;
   const [count, setCount] = useState(0);
+  const [showBag, setShowBag] = useState(false);
  
   const addCountHandle = () =>{
     setCount(()=> count+1);
@@ -34,9 +35,13 @@ function SingleProduct() {
   const substractCountHandle = () =>{
     setCount((preCount) => (preCount<=0)? 0: preCount-1);
   }
+
+  const handleAddToBag = () => {
+    setShowBag(true);
+  };
   return (
     <> 
-      <div className='grid grid-cols-[35vw_65vw] ml-20 mr-20 mb-20'>
+      <div className='grid grid-cols-[35vw_65vw] ml-20 mr-20 mb-20 relative'>
         <img src={decodedImageSrc || p1} alt="Product image" className='w-[50vw] h-full'/>
         <div className='ml-20'>
           <h3 className='text-[3rem]'>Ceylon Ginger Cinnamon chai tea</h3>
@@ -72,11 +77,12 @@ function SingleProduct() {
             <img src={substract} alt="" className='w-5'onClick={substractCountHandle}/>
             <p className='text-2xl w-3'>{count}</p>
             <img src={add} alt="" className='w-5' onClick={addCountHandle}/>
-          <button className='flex items-center gap-6 bg-black text-white pl-25 pr-25 pt-6 pb-6'>
+          <button className='flex items-center gap-6 bg-black text-white pl-25 pr-25 pt-6 pb-6' onClick={handleAddToBag}>
             <img src={shopping} alt="" className='w-6'/>ADD TO BAG
             </button>
           </div>
         </div>
+        {showBag && <MyBag imageSrc={decodedImageSrc}/>}
       </div>
 
       {/* steeping instructions */}

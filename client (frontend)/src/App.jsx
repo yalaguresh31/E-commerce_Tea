@@ -4,6 +4,7 @@ import Footer from './components/Footer.jsx'
 import Home from './pages/Home/Home.jsx'
 import Collections from './pages/Collections/Collections.jsx'
 import Accessories from './pages/Accessories/Accessories.jsx'
+import Blog from './pages/Blog/Blog.jsx'
 import {
   Routes,
   Route
@@ -23,7 +24,7 @@ function App() {
           <Route path='/collections' element={<Collections />} />
           <Route path="/accessories" element={<Accessories />} />
           <Route path='/product/:imageSrc' element={<Accessories />} />
-          <Route path='/blog'  />
+          <Route path='/blog' element={<Blog/>} />
           <Route path='/contact' />
         </Routes>
 
