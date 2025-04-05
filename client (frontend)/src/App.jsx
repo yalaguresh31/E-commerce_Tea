@@ -5,6 +5,10 @@ import Home from './pages/Home/Home.jsx'
 import Collections from './pages/Collections/Collections.jsx'
 import Accessories from './pages/Accessories/Accessories.jsx'
 import Blog from './pages/Blog/Blog.jsx'
+import Account from './pages/Account/Account.jsx'
+import Delivery from './pages/Delivery/Delivery.jsx'
+import Payment from './pages/Payment/Payment.jsx'
+import ThankYou from './pages/ThankYou/ThankYou.jsx'
 import {
   Routes,
   Route
@@ -25,7 +29,7 @@ function App() {
           <Route path="/accessories" element={<Accessories />} />
           <Route path='/product/:imageSrc' element={<Accessories />} />
           <Route path='/blog' element={<Blog/>} />
-          <Route path='/contact' />
+          <Route path='/contact' element={<ThankYou/>}/>
         </Routes>
 
         <Footer/>
