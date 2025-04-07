@@ -1,6 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Delivery() {
+    const navigate = useNavigate();
+
   return (
     <>
         <div className='flex items-center justify-between ml-[3rem] mr-[3rem]  mb-[4rem]'>
@@ -62,7 +65,7 @@ function Delivery() {
                     <p className='text-2xl font-black'>€7.85</p>
                 </div>
                 <p>Estimated shipping time: 2 days</p>
-                <button className='bg-black text-white w-full pt-[1rem] pb-[1rem]'>GO TO PAYMENT</button>
+                <button className='bg-black text-white w-full pt-[1rem] pb-[1rem]' onClick={() => navigate('/payment')}>GO TO PAYMENT</button>
             </div>
         </div>
     </>

@@ -1,8 +1,10 @@
 import React from 'react'
 import Bag from '../../components/Bag.jsx'
+import { useNavigate } from 'react-router-dom'
 
 function MyBag(props) {
-    
+    const navigate = useNavigate();
+
   return (
     <>
     <div className='bg-white absolute top-[-18%] right-[-5%]'>
@@ -25,7 +27,7 @@ function MyBag(props) {
                     <h3 className='text-2xl font-bold'>Total</h3>
                     <p className='text-2xl font-bold'>€7.85</p>
                 </div>
-                <button className='w-full pt-[1rem] pb-[1rem] mt-[2rem] mb-[2rem] bg-black text-white '>PURCHASE</button>
+                <button className='w-full pt-[1rem] pb-[1rem] mt-[2rem] mb-[2rem] bg-black text-white ' onClick={() => navigate('/blog')}>PURCHASE</button>
             </div>
         </div>
     </div>

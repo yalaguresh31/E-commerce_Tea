@@ -3,8 +3,11 @@ import card1 from '../../assets/card1.png'
 import card2 from '../../assets/card2.png'
 import card3 from '../../assets/card3.png'
 import card4 from '../../assets/card4.png'
+import { useNavigate } from 'react-router-dom'
 
 function Payment() {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className='flex items-center justify-between ml-[3rem] mr-[3rem]  mb-[4rem]'>
@@ -91,7 +94,7 @@ function Payment() {
               <p className='text-2xl font-black'>€7.85</p>
           </div>
           <p>Estimated shipping time: 2 days</p>
-          <button className='bg-black text-white w-full pt-[1rem] pb-[1rem]'>PAY</button> 
+          <button className='bg-black text-white w-full pt-[1rem] pb-[1rem]' onClick={() => navigate('/thankyou')}>PAY</button> 
         </div>
         
       </div>

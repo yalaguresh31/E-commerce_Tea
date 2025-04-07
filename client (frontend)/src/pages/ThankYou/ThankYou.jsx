@@ -20,7 +20,7 @@ function ThankYou() {
                 <p className='text-2xl mb-[4rem]'>ORDER DETAILS - 8972491047359</p>
 
             </div>
-            <div className='grid grid-cols-3 grid-rows-2 gap-[2rem]'>
+            <div className='grid grid-cols-3 grid-rows-2 h-screen gap-[2rem]'>
                 <div className='space-y-[2rem] pt-[2rem]'>
                     <div className='flex items-center space-x-[4rem] ml-[4rem] '>
                         <img src={p1} alt="" className='w-[5vw]'/>
@@ -85,7 +85,7 @@ function ThankYou() {
                     </div>
                 </div>
 
-                <div className='mx-[4rem] mt-[8rem]'>
+                <div className='mx-[4rem] mt-[8rem] h-fit'>
                     <div className='flex items-center justify-between'>
                         <p>Subtotal</p>
                         <p>€3.90</p>

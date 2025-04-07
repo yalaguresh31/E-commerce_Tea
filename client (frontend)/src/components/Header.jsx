@@ -7,13 +7,15 @@ import menu from '../assets/menu.png'
 import close from '../assets/close.png'
 import { Link } from 'react-router-dom';
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
-      <nav className='flex justify-between items-center p-2'>
+      <nav className='flex justify-between items-center pl-2'>
         <div className='md:pl-10'>
           <Link to="/"><img src={logo}  alt="logo" className='md:w-[20vw] w-[35vw]' /></Link>
         </div>
@@ -56,7 +58,7 @@ function Header() {
         <div>
           <ul className='md:flex gap-6 pr-20 hidden'>
             <li><img src={search} alt="search" className='w-8'/></li>
-            <li><img src={user} alt="user" className='w-8'/></li>
+            <li><img src={user} alt="user" onClick={()=> navigate('/account')} className='w-8 cursor-pointer'/></li>
             <li><img src={shopping} alt="shopping" className='w-8'/></li>
           </ul>
         </div>

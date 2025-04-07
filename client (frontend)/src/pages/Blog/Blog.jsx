@@ -9,8 +9,11 @@ import card5 from '../../assets/card5.png'
 import p7 from '../../assets/p7.png'
 import p8 from '../../assets/p8.png'
 import p9 from '../../assets/p9.png'
+import { useNavigate } from 'react-router-dom'
 
 function Blog() {
+    const navigate = useNavigate();
+
   return (
     <>
         <div className='flex items-center justify-between ml-[3rem] mr-[3rem]  mb-[4rem]'>
@@ -56,7 +59,7 @@ function Blog() {
                         <p className='text-2xl font-black'>€7.85</p>
                     </div>
                     <p>Estimated shipping time: 2 days</p>
-                    <button className='bg-black text-white w-full pt-[1rem] pb-[1rem]'>CHECK OUT</button>
+                    <button className='bg-black text-white w-full pt-[1rem] pb-[1rem]' onClick={() => navigate('/delivery')}>CHECK OUT</button>
                 </div>
 
                 <div className='w-[40vw] p-[4rem] bg-[#f4f4f4] space-y-[2rem]'>
