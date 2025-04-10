@@ -57,9 +57,9 @@ function Header() {
 
         <div>
           <ul className='md:flex gap-6 pr-20 hidden'>
-            <li><img src={search} alt="search" className='w-8'/></li>
+            <li><img src={search} alt="search" className='w-8 cursor-pointer'/></li>
             <li><img src={user} alt="user" onClick={()=> navigate('/account')} className='w-8 cursor-pointer'/></li>
-            <li><img src={shopping} alt="shopping" className='w-8'/></li>
+            <li><img src={shopping} alt="shopping" className='w-8 cursor-pointer'/></li>
           </ul>
         </div>
         
