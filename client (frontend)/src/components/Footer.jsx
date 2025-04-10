@@ -6,7 +6,7 @@ import phone from '../assets/phone.png'
 function Footer() {
   return (
     <>
-        <footer className='bg-[#f4f4f4] flex md:flex-row flex-col items-center justify-between pt-10 pb-10 pl-15 pr-15 relative bottom-0 left-0 right-0'>
+        <footer className='bg-[#f4f4f4] flex md:flex-row flex-col items-center justify-between md:items-baseline pt-10 pb-10 pl-15 pr-15 relative bottom-0 left-0 right-0'>
             <div className='mt-5'>
                 <h3 className='mb-5 font-bold'>COLLECTIONS</h3>
                 <ul className='space-y-2 list-none'>
