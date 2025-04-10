@@ -1,5 +1,5 @@
 import React from 'react'
-import red_tea from '../../assets/red_tea.png'
+import red_tea from '../../assets/red_Tea.png'
 import SubMenu from '../../components/SubMenu.jsx'
 import Product from '../../components/Product.jsx'
 import p1 from '../../assets/p1.png'
