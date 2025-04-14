@@ -7,12 +7,11 @@ function Product(props) {
         <div className='flex flex-col items-center justify-center h-full m-5'>
             {/* <Link to="/accessories"> */}
             {/* link added img */}
-            <Link to={`/product/${encodeURIComponent(props.imageSrc)}`}>
-            <img src={props.imageSrc} alt="" className='w-[15vw]'/>
+            <Link>
+            <img src={props.imageSrc} alt="" className='w-[15vw] pb-5'/>
             </Link>
-            <h4>Ceylon Ginger <br />
-            Cinnamon chai tea</h4>
-            <p>€4.85 / 50 g</p>
+            <h4>{props.title}</h4>
+            <p>{`${props.price}g`}</p>
         </div>
 
         

@@ -8,6 +8,9 @@ import Account from './pages/Account/Account.jsx'
 import Delivery from './pages/Delivery/Delivery.jsx'
 import Payment from './pages/Payment/Payment.jsx'
 import ThankYou from './pages/ThankYou/ThankYou.jsx'
+import Prodduct_Admin from './pages/Dashboard/Product_Admin/Product.jsx'
+import CreateProdduct_Admin from './pages/Dashboard/Product_Admin/CreateProduct.jsx'
+import UpdateProdduct_Admin from './pages/Dashboard/Product_Admin/UpdateProduct.jsx'
 import {
   Routes,
   Route
@@ -31,6 +34,11 @@ import {
             <Route path='/payment' element={<Payment/>} />
             <Route path='/thankyou' element={<ThankYou/>}/>
             <Route path='/contact' />
+
+            {/* admin */}
+            <Route path="/Admin" element={<Prodduct_Admin/>}></Route>
+            <Route path="/createAdmin" element={<CreateProdduct_Admin/>}></Route>
+            <Route path="/updateAdmin/:id" element={<UpdateProdduct_Admin/>}></Route>
           </Routes>
           <Footer/>
         </div>

@@ -2,25 +2,25 @@ import React from 'react'
 import red_tea from '../../assets/red_Tea.png'
 import SubMenu from '../../components/SubMenu.jsx'
 import Product from '../../components/Product.jsx'
-import p1 from '../../assets/p1.png'
-import p2 from '../../assets/p2.png'
-import p3 from '../../assets/p3.png'
-import p4 from '../../assets/p4.png'
-import p5 from '../../assets/p5.png'
-import p6 from '../../assets/p6.png'
-import p7 from '../../assets/p7.png'
-import p8 from '../../assets/p8.png'
-import p9 from '../../assets/p9.png'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Collections() {
   const [isChecked, setIsChecked] = useState(false);
   const navigate = useNavigate();
+  const [products, setProducts] = useState([]);
+
+    useEffect(() =>{
+        axios.get("http://localhost:3000/display")
+        .then(result => setProducts(result.data))
+        .catch(err => console.log(err))
+    },[]);
 
   const handleProductClick = (imageSrc) => {
     navigate(`/product/${encodeURIComponent(imageSrc)}`);
   };
+
   const items ={
     COLLECTIONS: ['Black teas', 'Green teas', 'White teas', 'Chai', 'Matcha', 'Herbal teas','Oolong', 'Rooibos', 'Teaware'],
     ORIGIN: ['India', 'Japan', 'Iran', 'South Africa'],
@@ -59,18 +59,15 @@ function Collections() {
 
         {/* tea items */}
         <div className='p-5'>
-          <div className='grid grid-cols-3 gap-3'>
-            <Product imageSrc={p1} onClick={() => handleProductClick(p1)}/>
-            <Product imageSrc={p2} onClick={() => handleProductClick(p2)}/>
-            <Product imageSrc={p3} onClick={() => handleProductClick(p3)}/>
-
-            <Product imageSrc={p4} onClick={() => handleProductClick(p4)}/>
-            <Product imageSrc={p5} onClick={() => handleProductClick(p5)}/>
-            <Product imageSrc={p6} onClick={() => handleProductClick(p6)}/>
-
-            <Product imageSrc={p7} onClick={() => handleProductClick(p7)}/>
-            <Product imageSrc={p8} onClick={() => handleProductClick(p8)}/>
-            <Product imageSrc={p9} onClick={() => handleProductClick(p9)}/>
+          <div className='grid grid-cols-3 gap-3 mb-10'>
+          {products.map((product, index) => (
+            <Product
+              key={index}
+              imageSrc={`http://localhost:3000/image/${product.image}`}
+              title={product.title}
+              price={product.price}
+              onClick={() => handleProductClick(product.image)} />
+          ))}
           </div>
         </div>
       </div>
