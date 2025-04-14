@@ -105,7 +105,7 @@ app.delete("/deleteProduct/:id",(req, res) =>{
 
 
 app.get("/", (req, res) =>{
-    res.send("hello world");
+    res.send("Backend is running");
 });
 
 const PORT = process.env.PORT || 3000;
