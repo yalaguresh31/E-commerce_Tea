@@ -12,8 +12,11 @@ function Collections() {
   const [products, setProducts] = useState([]);
 
     useEffect(() =>{
-        axios.get("http://localhost:3000/display")
-        .then(result => setProducts(result.data))
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}/display`)
+        .then(result => {
+          console.log("API response:", result.data);
+          setProducts(result.data);
+        })
         .catch(err => console.log(err))
     },[]);
 
@@ -60,13 +63,13 @@ function Collections() {
         {/* tea items */}
         <div className='p-5'>
           <div className='grid grid-cols-3 gap-3 mb-10'>
-          {products.map((product, index) => (
+          {Array.isArray(products) && products.map((product, index) => (
             <Product
               key={index}
-              imageSrc={`http://localhost:3000/image/${product.image}`}
+              imageSrc={`${import.meta.env.VITE_API_BASE_URL}/image/${product.image}`}
               title={product.title}
               price={product.price}
-              onClick={() => handleProductClick(product.image)} />
+              onClick={() => handleProductClick(product.image)}/>
           ))}
           </div>
         </div>

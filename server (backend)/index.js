@@ -2,6 +2,8 @@ const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
 const multer  = require('multer')
+require('dotenv').config();
+
 const ProductModel = require('./models/Product')
 
 const app = express()
@@ -9,7 +11,8 @@ app.use(cors());
 app.use(express.json());
 app.use('/image', express.static('public/image'));
 
-mongoose.connect("mongodb://localhost:27017/E-Commerce_Tea")
+console.log("Connecting to MongoDB at:", process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI);
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -105,6 +108,8 @@ app.get("/", (req, res) =>{
     res.send("hello world");
 });
 
-app.listen(3000,() =>{
-    console.log('server is running... http://localhost:3000/');
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`server is running... http://localhost:${PORT}/`);
 });

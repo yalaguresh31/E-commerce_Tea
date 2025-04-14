@@ -13,7 +13,7 @@ function UpdateProduct() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("http://localhost:3000/getProduct/" + id)
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}/getProduct/` + id)
             .then(result => {
                 setExistingImage(result.data.image);
                 setTitle(result.data.title);
@@ -34,7 +34,7 @@ function UpdateProduct() {
         formData.append('price', price);
         formData.append('weight', weight);
 
-        axios.put(`http://localhost:3000/updateProduct/${id}`, formData, {
+        axios.put(`${import.meta.env.VITE_API_BASE_URL}/updateProduct/${id}`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -54,7 +54,7 @@ function UpdateProduct() {
                 <div>
                     <label className="block mb-1 text-gray-700">Image</label>
                     {existingImage && !image && (
-                        <img src={`http://localhost:3000/image/${existingImage}`} alt="Current" className="w-32 h-32 object-cover mb-2" />
+                        <img src={`${import.meta.env.VITE_API_BASE_URL}/image/${existingImage}`} alt="Current" className="w-32 h-32 object-cover mb-2" />
                     )}
                     <input
                         type="file"

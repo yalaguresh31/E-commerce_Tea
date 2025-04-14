@@ -19,7 +19,7 @@ function CreateProduct() {
         formData.append("weight", weight);
         
         // { image,title,price,weight }
-        axios.post("http://localhost:3000/createProduct", formData)
+        axios.post(`${import.meta.env.VITE_API_BASE_URL}/createProduct`, formData)
         .then(result => {
             console.log(result)
             navigate("/Admin")

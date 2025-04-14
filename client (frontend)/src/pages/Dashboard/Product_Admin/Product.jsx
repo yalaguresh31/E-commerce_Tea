@@ -7,13 +7,13 @@ function Product() {
     const [products, setProducts] = useState([]);
 
     useEffect(() =>{
-        axios.get("http://localhost:3000/display")
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}/display`)
         .then(result => setProducts(result.data))
         .catch(err => console.log(err))
     },[]);
 
     const handleDelete = (id) =>{
-        axios.delete("http://localhost:3000/deleteProduct/"+id)
+        axios.delete(`${import.meta.env.VITE_API_BASE_URL}/deleteProduct/`+id)
         .then(res => {
             console.log(res)
             window.location.reload()
@@ -41,7 +41,7 @@ function Product() {
                             <tr key={index} className="hover:bg-gray-50">
                                 <td className="p-3 border-b border-gray-200">{index + 1}</td>
                                 <td className="p-3 border-b border-gray-200">
-                                    <img src={`http://localhost:3000/image/${product.image}`} alt="image" className="h-16 w-16 object-cover rounded" />
+                                    <img src={`${import.meta.env.VITE_API_BASE_URL}/image/${product.image}`} alt="image" className="h-16 w-16 object-cover rounded" />
                                 </td>
                                 <td className="p-3 border-b border-gray-200">{product.title}</td>
                                 <td className="p-3 border-b border-gray-200">{product.price}</td>
