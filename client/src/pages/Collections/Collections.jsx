@@ -69,6 +69,7 @@ function Collections() {
               imageSrc={`${import.meta.env.VITE_API_BASE_URL}/image/${product.image}`}
               title={product.title}
               price={product.price}
+              weight={product.weight}
               onClick={() => handleProductClick(product.image)}/>
           ))}
           </div>

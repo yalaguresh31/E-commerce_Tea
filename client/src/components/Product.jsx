@@ -11,7 +11,8 @@ function Product(props) {
             <img src={props.imageSrc} alt="" className='w-[15vw] pb-5'/>
             </Link>
             <h4>{props.title}</h4>
-            <p>{`${props.price}g`}</p>
+            <p>{props.price}</p>
+            <p>{`${props.weight}g`}</p>
         </div>
 
         
